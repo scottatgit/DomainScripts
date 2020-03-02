@@ -1,0 +1,2 @@
+﻿Name,GivenName,Surname,SamAccountName,UserPrincipalName,Path,AccountPassword,Enabled,passwordNeverExpires,Identity,Members
+Example Name,Example,Name,ename.0000,ename@test.com,"CN=Users,DC=Fieldstone,DC=local",accounT889##Password,1,1,Domain Admins,ename.0000
