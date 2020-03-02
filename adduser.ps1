@@ -7,7 +7,7 @@ Import-Csv $path | Foreach-Object {
     $SamAccountName=$_.SamAccountName 
     $UserPrincipalName=$_.UserPrincipalName
     $Path=$_.Path
-    $AccountPassword=ConvertTo-SecureString $_.AccountPassword –asplaintext –force
+    $AccountPassword=ConvertTo-SecureString $_.AccountPassword â€“asplaintext â€“force
     $Enable=[boolean]$_.Enable
 
     $passwordNeverExpires=[boolean]$_.passwordNeverExpires
@@ -17,9 +17,6 @@ Import-Csv $path | Foreach-Object {
         
      New-ADUser -Name $name -GivenName $GivenName -Surname $Surname -SamAccountName $SamAccountName -UserPrincipalName $UserPrincipalName -Path $Path -AccountPassword $AccountPassword -Enabled $Enabled -passwordNeverExpires $passwordNeverExpires
     Add-ADGroupMember -Identity $Identity -Members $Members
-
-    #New-ADUser -Name "Pete McKee" -GivenName "Pete" -Surname "McKee" -SamAccountName "pmckee.0000" -UserPrincipalName "pete.mckee@warrenaverett.com" -Path "CN=Users,DC=Fieldstone,DC=local" -AccountPassword(Read-Host -AsSecureString "Input Password") -Enabled $true -passwordNeverExpires $true
-    #Add-ADGroupMember -Identity "Domain Admins" -Members "pmckee.0000"
 } 
 
 
